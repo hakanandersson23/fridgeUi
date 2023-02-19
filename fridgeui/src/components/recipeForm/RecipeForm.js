@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './recipeForm.css'
 
 function RecipeForm() {
   const [name, setName] = useState('');
@@ -28,29 +29,31 @@ function RecipeForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // Do something with the form data (e.g. submit to a server)
+    console.log('Recipe Name:', name);
+    console.log('Recipe Description:', description);
+    console.log('Selected File:', file);
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Recipe Name:
-        <input type="text" value={name} onChange={handleNameChange} />
-      </label>
-      <br />
-      <label>
-        Recipe Description:
-        <textarea value={description} onChange={handleDescriptionChange} />
-      </label>
-      <br />
-      <label>
-        Upload Image (JPG or PNG):
-        <input type="file" accept="image/jpeg,image/png" onChange={handleFileChange} />
-      </label>
-      {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
-      <br />
-      <button type="submit">Submit</button>
-    </form>
+    <div className="overlay">
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
+        <label>
+          <input type="text" value={name} onChange={handleNameChange} placeholder="Enter recipe name" />
+        </label>
+        <label>
+          <textarea value={description} onChange={handleDescriptionChange} placeholder="Enter recipe description"></textarea>
+        </label>
+        <label>
+          Upload Image (JPG or PNG):
+          <input type="file" accept="image/jpeg,image/png" onChange={handleFileChange} />
+        </label>
+        {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
   );
 }
 
