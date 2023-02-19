@@ -9,23 +9,25 @@ function AddCard() {
     setShowForm(true);
   }
 
-  // function handleCloseForm() {
-  //   setShowForm(false);
-  // }
+  function handleCloseForm() {
+    if (showForm) {
+      setShowForm(false);
+    }
+  }
 
-  // function handleClickOutside(event) {
-  //   const overlay = document.querySelector('.overlay');
-  //   if (overlay && !overlay.contains(event.target)) {
-  //     setShowForm(false);
-  //   }
-  // }
+  function handleClickOutside(event) {
+    const formContainer = document.querySelector('.form-container');
+    if (formContainer && !formContainer.contains(event.target) && showForm) {
+      setShowForm(false);
+    }
+  }
 
-  // React.useEffect(() => {
-  //   document.addEventListener('click', handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutside);
-  //   };
-  // }, []);
+  React.useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
@@ -33,7 +35,7 @@ function AddCard() {
       {showForm && (
         <div className="overlay">
           <div className="form-container">
-            <RecipeForm />
+            <RecipeForm onClose={handleCloseForm} />
           </div>
         </div>
       )}

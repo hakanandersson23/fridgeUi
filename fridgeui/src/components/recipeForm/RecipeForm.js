@@ -35,8 +35,8 @@ function RecipeForm() {
   }
 
   return (
-    <div className="overlay">
-    <div className="form-container">
+    <div>
+    <div className="recipe-form-container">
       <form onSubmit={handleSubmit}>
         <label>
           <input type="text" value={name} onChange={handleNameChange} placeholder="Enter recipe name" />

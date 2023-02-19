@@ -1,10 +1,10 @@
-.form-container form label {
+.recipe-form-container form label {
     display: block;
     margin-bottom: 10px;
   }
   
-  .form-container form input[type="text"],
-  .form-container form textarea {
+  .recipe-form-container form input[type="text"],
+  .recipe-form-container form textarea {
     display: block;
     width: 100%;
     padding: 10px;
@@ -13,12 +13,12 @@
     font-size: 16px;
   }
   
-  .form-container form input[type="text"]:hover,
-  .form-container form textarea:hover {
+  .recipe-form-container form input[type="text"]:hover,
+  .recipe-form-container form textarea:hover {
     border-color: #999;
   }
   
-  .form-container form input[type="text"]::placeholder,
-  .form-container form textarea::placeholder {
+  .recipe-form-container form input[type="text"]::placeholder,
+  .recipe-form-container form textarea::placeholder {
     color: #999;
   }
